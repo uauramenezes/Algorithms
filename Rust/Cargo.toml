@@ -1,5 +1,5 @@
 [package]
-name = "bts"
+name = "algorithms"
 version = "0.1.0"
 authors = ["Uaurá Menezes <uaurasilva@hotmail.com>"]
 edition = "2018"
