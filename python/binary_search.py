@@ -1,6 +1,6 @@
 import math
 
-def binary_search(numbers, element):
+def iter(numbers, element):
     start = 0
     end = len(numbers) - 1
 
@@ -17,7 +17,7 @@ def binary_search(numbers, element):
     return None
 
 
-def recursive_binary_search(numbers, element, start=0, end=None):
+def recursive(numbers, element, start=0, end=None):
     if end == None: 
         end = len(numbers) - 1
     if start > end:
@@ -28,5 +28,5 @@ def recursive_binary_search(numbers, element, start=0, end=None):
     if element == numbers[middle]:
         return middle
     if element > numbers[middle]:
-        return recursive_binary_search(numbers, element, middle + 1, end)
-    return recursive_binary_search(numbers, element, start, middle - 1)
+        return recursive(numbers, element, middle + 1, end)
+    return recursive(numbers, element, start, middle - 1)

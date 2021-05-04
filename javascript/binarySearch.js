@@ -1,4 +1,4 @@
-function binarySearch(array, element) {
+function iter(array, element) {
   let start = 0;
   let end = array.length - 1;
 
@@ -17,7 +17,7 @@ function binarySearch(array, element) {
   return -1;
 }
 
-function recursiveBinarySearch(array, element, start=0, end=undefined) {
+function recursive(array, element, start=0, end=undefined) {
   if (end == undefined) end = array.length - 1;
 
   let middle = Math.floor((end - start) / 2) + start;
@@ -26,8 +26,10 @@ function recursiveBinarySearch(array, element, start=0, end=undefined) {
   if (element === array[middle]) return middle;
   
   if (element > array[middle]) {
-    return recursiveBinarySearch(array, element, middle + 1, end);
+    return recursive(array, element, middle + 1, end);
   } else {
-    return recursiveBinarySearch(array, element, start, middle - 1);
+    return recursive(array, element, start, middle - 1);
   }
 }
+
+module.exports = {iter, recursive}
