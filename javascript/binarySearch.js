@@ -31,9 +31,3 @@ function recursiveBinarySearch(array, element, start=0, end=undefined) {
     return recursiveBinarySearch(array, element, start, middle - 1);
   }
 }
-
-const numbersArray = [-10, -8, -6, -4, -2, 0, 2, 4, 6, 8, 10];
-
-const args = Number(process.argv[2])
-
-console.log(recursiveBinarySearch(numbersArray, args));
