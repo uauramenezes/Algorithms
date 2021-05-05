@@ -5,7 +5,7 @@ class BinarySearch
         int start = 0;
         int end = arr.Length - 1;
 
-        while (start < end) 
+        while (start <= end) 
         {
             int middle = (end - start / 2) + start;
 
