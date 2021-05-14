@@ -1,3 +1,6 @@
+# Time Complexity: O(n²)
+# Space Complexity: O(1) 
+
 def selection_sort(array):
     for i in range(len(array)):
         min_value = i
