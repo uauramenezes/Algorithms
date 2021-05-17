@@ -37,5 +37,3 @@ function selectionSort() {
     playBtn.textContent = 'Reset';
   }
 }
-
-export { bubbleSort, selectionSort }

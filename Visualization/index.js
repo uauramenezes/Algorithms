@@ -1,5 +1,3 @@
-import {selectionSort} from './algorithms'
-
 let i = 0;
 let j = 1;
 let x = 0;
@@ -25,13 +23,13 @@ function reset() {
 
 let playBtn = document.querySelector('#play-btn');
 playBtn.addEventListener('click', () => {
-  play = play ? false : true;
-  playBtn.textContent = play ? 'Pause' : 'Play';
-
   if (done) {
     done = false;
     reset();
   };
+
+  play = play ? false : true;
+  playBtn.textContent = play ? 'Pause' : 'Play';
 })
 
 function setup() {
@@ -48,15 +46,19 @@ function randomArray() {
 
 function draw() {
   background(11);
+  drawArray();
 
   if (play) speedAnimation();
-  
-  drawArray();
+
+  if (i>= array.length) {
+    done = true;
+    play = false;
+    playBtn.textContent = 'Play'
+  }
 }
 
 function speedAnimation() {
   let sliderValue = document.querySelector('#slider').value;
-
   if (sliderValue < 0) {
     if (x % -sliderValue === 0) {
       selectionSort();
@@ -66,6 +68,19 @@ function speedAnimation() {
     for (let s = 0; s <= sliderValue; s++) {
       selectionSort();
     }
+  }
+}
+
+function selectionSort() {
+  if (j === i + 1) minVal = i;
+  if (j<array.length) {
+    if (array[j] < array[minVal]) minVal = j;
+    current = j;
+    j++;
+  } else {
+    swap(i, minVal)
+    i++;
+    j=i+1;
   }
 }
 
