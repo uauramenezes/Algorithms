@@ -15,17 +15,17 @@ function bubbleSort() {
 
 function selectionSort() {
   if (i >= array.length) return true;
-  if (j === i + 1) minVal = i;
+  if (j === i + 1) selectedValue = i;
   if (j < array.length) {
-    if (array[j] < array[minVal]) {
-      minVal = j;
+    if (array[j] < array[selectedValue]) {
+      selectedValue = j;
     }
     current = j;
     j++;
   } else {
     current = i;
     play = false;
-    swap(i, minVal)
+    swap(i, selectedValue)
     j = i + 1;
     i++;
   }

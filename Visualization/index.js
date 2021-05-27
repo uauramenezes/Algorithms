@@ -4,9 +4,9 @@ let j;
 let done;
 let play;
 let array;
-let minVal;
 let current;
 let arraySize;
+let selectedValue;
 
 let playBtn = document.querySelector('#play-btn');
 playBtn.addEventListener('click', () => {
@@ -30,16 +30,15 @@ function initiateValues() {
   x = 0;
   c = 0;
   array = [];
-  minVal = 0;
   current = 0;
   done = false;
   play = false;
   arraySize = 50;
+  selectedValue = 0;
   randomArray();
 }
 
 function randomArray() {
-  array = [];
   for (let i = 0; i < arraySize; i++) {
     array.push(random(1, height))
   }
@@ -76,7 +75,7 @@ function drawArray() {
     let wRect = width/arraySize;
     let xPos = c * wRect;
 
-    if ((minVal == c && minVal != 0 && !done) || (current == c && c !== 0 && !done)) {
+    if ((selectedValue == c && selectedValue != 0 && !done) || (current == c && c !== 0 && !done)) {
       fill(0, 255, 0);
     } else {
       fill(0, 0, 255);
