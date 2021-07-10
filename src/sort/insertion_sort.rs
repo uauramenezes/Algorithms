@@ -1,10 +1,8 @@
-pub fn insertion_sort(vec: &mut Vec<i32>) {
+pub fn insertion_sort<T: Ord>(vec: &mut [T]) {
     for i in 1..vec.len() {
         let mut j = i;
         while j > 0 && vec[j - 1] > vec[j] {
-            let temp = vec[j];
-            vec[j] = vec[j - 1];
-            vec[j - 1] = temp;
+            vec.swap(j, j - 1);
             j -= 1;
         }
     }

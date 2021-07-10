@@ -1,10 +1,8 @@
-pub fn bubble_sort(vec: &mut Vec<i32>) {
-    for _ in 0..vec.len() - 1 {
-        for i in 0..vec.len() - 1 {
-            if vec[i] > vec[i + 1] {
-                let temp = vec[i];
-                vec[i] = vec[i + 1];
-                vec[i + 1] = temp;
+pub fn bubble_sort<T: Ord>(vec: &mut [T]) {
+    for i in 0..vec.len() - 1 {
+        for j in 0..vec.len() - 1 - i {
+            if vec[j] > vec[j + 1] {
+                vec.swap(j, j + 1);
             }
         }
     }

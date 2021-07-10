@@ -1,4 +1,4 @@
-pub fn selection_sort(vec: &mut Vec<i32>) {
+pub fn selection_sort<T: Ord>(vec: &mut [T]) {
     for i in 0..vec.len() {
         let mut selected_index = i;
         for j in i + 1..vec.len() {
@@ -6,11 +6,7 @@ pub fn selection_sort(vec: &mut Vec<i32>) {
                 selected_index = j;
             }
         }
-        if i != selected_index {
-            let temp = vec[i];
-            vec[i] = vec[selected_index];
-            vec[selected_index] = temp;
-        }
+        vec.swap(i, selected_index);
     }
 }
 
